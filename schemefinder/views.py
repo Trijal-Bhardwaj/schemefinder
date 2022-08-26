@@ -271,34 +271,38 @@ def downloads(request):
 def apply_filter(request):
     print("!!!!!!!!")
     # state, district, agency name, disability type, category, date_range, accepted-rejected
-    state = request.GET.get('state', None)
-    district = request.GET.get('district', None)
-    agency_name = request.GET.get('agency', None)
-    disability_type = request.GET.get('disability_type', None)
-    category = request.GET.get('agency', None)
-    start_date = request.GET.get('start_date', None)
-    end_date = request.GET.get('end_date', None)
-    status = request.GET.get('status', None)
-    print(state, district, agency_name, disability_type, category, start_date, end_date, status)
+    state = request.POST.get('state', None)
+    district = request.POST.get('district', None)
+    gender = request.POST.get('gender', None)
+    agency_name = request.POST.get('agency', None)
+    imparement = request.POST.get('disability_type', None)
+    category = request.POST.get('agency', None)
+    start_date = request.POST.get('start_date', None)
+    end_date = request.POST.get('end_date', None)
+    status = request.POST.get('status', None)
+    print(state, district, gender, agency_name, imparement, category, start_date, end_date, status)
+    beneficiary_list = BeneficiaryDetails.objects.all()
 
     if state:
         beneficiary_list = BeneficiaryDetails.objects.filter(state=state)
     if district:
-        beneficiary_list = beneficiary_list.objects.filter(district=district)
+        beneficiary_list = beneficiary_list.filter(district=district)
     if agency_name:
-        beneficiary_list = beneficiary_list.objects.filter(agency_name=agency_name)
-    if disability_type:
-        beneficiary_list = beneficiary_list.objects.filter(disability_type=disability_type)
+        beneficiary_list = beneficiary_list.filter(agency_name=agency_name)
+    if imparement:
+        beneficiary_list = beneficiary_list.filter(imparement=imparement)
     if category:
-        beneficiary_list = beneficiary_list.objects.filter(category=category)
-    if start_date:
-        beneficiary_list = beneficiary_list.objects.filter(updated__gte=start_date, updated__lte=end_date)
+        beneficiary_list = beneficiary_list.filter(category=category)
+    if gender:
+        beneficiary_list = beneficiary_list.filter(gender=gender)
+    # if start_date:
+    #     beneficiary_list = beneficiary_list.filter(updated__gte=start_date, updated__lte=end_date)
     if status:
-        beneficiary_list = beneficiary_list.objects.filter(status=status)
+        beneficiary_list = beneficiary_list.filter(status=status)
     
     context = []
     detail = {}
-    filter_details = [state, district, agency_name, disability_type, category, start_date, end_date, status]
+    filter_details = [state, district, agency_name, imparement, category, start_date, end_date, status]
 
     index = 1
     for beneficiary in beneficiary_list:

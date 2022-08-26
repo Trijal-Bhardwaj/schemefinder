@@ -293,19 +293,20 @@
 							
 
 	<form style="border:2px solid gray; border-radius: 20px; margin-top:5rem;">
-	<h5 style="margin: 2rem 0 0 2rem; color:darkblue !important"> Beneficiary Details </h5>
+		<h5 style="margin: 2rem 0 0 2rem; color:darkblue !important"> Beneficiary Details </h5>
 		<!-- /***************************************************************************************************
-		 -->
-		 <div  id="filter">
+		-->
+		<div  id="filter">
 			<form style = "display:flex">
-			
+				
 			</form>
 		</div>
 		<!-- ************************************************************************************************ -->
-	<form onsubmit="return fetchFilter(this)">
+		<form method="post" action="../apply_filter/">
+		{% csrf_token %}
 		<div class="form-group col-sm-3 col-xs-6  col-lg-12">
 			<label for="inputState">State</label>
-			<select class="form-control" id="inputState">
+			<select class="form-control" id="inputState" name="state">
 								<option value="SelectState">Select State</option>
 								<option value="Andra Pradesh">Andra Pradesh</option>
 								<option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -348,7 +349,7 @@
 		  </div>
 		  <div class="form-group col-sm-3 col-xs-6  col-lg-12">
 			<label for="inputDistrict">District</label>
-			<select class="form-control" id="inputDistrict">
+			<select class="form-control" id="inputDistrict" name="district">
 				<option value="">-- select one -- </option>
 			</select>
 		  </div>
@@ -358,16 +359,16 @@
 		<!-- <div class="form-group col-sm-3 col-xs-6 col-lg-12"> -->
 	
 		<div class="form-group col-sm-3 col-xs-6  col-lg-12">
-			<select data-filter="model" class="filter-model filter form-control">
+			<select data-filter="model" class="filter-model filter form-control" name="gender">
 				<option value="">Select Gender</option>
-				<option value="Masle">Male</option>
+				<option value="Male">Male</option>
 				<option value="Female">Female</option>
 				<option value="Other">Other</option>
 
 			</select>
 		</div>
 		<div class="form-group col-sm-3 col-xs-6  col-lg-12">
-			<select data-filter="type" class="filter-type filter form-control">
+			<select data-filter="type" class="filter-type filter form-control" name="disability_type">
 				<option value="Disability Type">Disability Type</option>
 				<option value="Locomoter Disabled">Locomoter Disabled</option>
 				<option value="Visual Disability">Visual Disability</option>
@@ -379,7 +380,7 @@
 		</div>
 	
 		<div class="form-group col-sm-3 col-xs-6  col-lg-12">
-			<select data-filter="type" class="filter-type filter form-control">
+			<select data-filter="type" class="filter-type filter form-control" name="category">
 				<option value="Category">Category</option>
 				<option value="General">General</option>
 				<option value="SC/ST">SC/ST</option>
@@ -394,10 +395,10 @@
 				<option value="">Show All</option>
 			</select> -->
 			<label for="date">Select a Date :</label>
-			<input type="date" id="date" name="date">
+			<input type="date" id="date" name="start_date">
 		</div>
 
-		<button class="btn btn-primary" style="margin-left: 15rem;" onclick="fetchFilter()">Apply Filters</button>
+		<button type="submit" class="btn btn-primary" style="margin-left: 15rem;" onclick="fetchFilter()">Apply Filters</button>
 	</form>
 		<form action="../change-status/" method="post">
 			{% csrf_token %}
