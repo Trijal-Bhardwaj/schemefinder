@@ -29,6 +29,7 @@ DEBUG = True
 HOST_URL = 'http://127.0.0.1:8000/'
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ["https://desolate-oasis-59195.herokuapp.com"]
+SMS_BACKEND = 'sms.backends.locmem.SmsBackend'
 
 # Application definition
 

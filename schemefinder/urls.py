@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static  
 from schemefinder.views import (home, registration, agency_registration, index, agency_index, schemes, 
     equipment, feedback, reg_status, dis_info, national_institutes, checklist, downloads, beneficiary_index,
-    get_beneficiary_json, change_status
+    get_beneficiary_json, change_status, apply_filter
 )
 
 
@@ -40,7 +40,8 @@ urlpatterns = [
     path('disability-info/', dis_info),
     path('national_institutes/', national_institutes),
     path('checklist/', checklist),
-    path('downloads/', downloads)
+    path('downloads/', downloads),
+    path('apply_filter/', apply_filter)
 ]
 
 

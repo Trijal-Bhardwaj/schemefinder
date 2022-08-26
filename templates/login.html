@@ -168,8 +168,8 @@ left: 0%;
 
 		<section>
 		<nav class="navbar navbar-fixed-top navbar-default">
-		<div class="midpart container-fluid" style="background-color: white;">
-			<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 ">
+		<div class="midpart container-fluid" style="height:10rem">
+			<div class="col-md-6 col-lg-6 col-sm-11 col-xs-11 ">
 				<div class="logo pull-left">
 					<a> <img src="https://cdn.discordapp.com/attachments/947929316623278104/956773546732953601/Banner_Image.jpeg"  style="height:13rem; margin: 10px 0 0 20px;" style="height:13rem; margin: 10px 0 0 20px;">
 					</a>
@@ -214,14 +214,13 @@ left: 0%;
 			 
 		</div>
 		
-			<div class="container-fluid navbar-latest">	
+			<div class="container-fluid navbar-latest" style="height:5rem">	
 				<div class="">
 				<ul class="nav navbar-nav navbar-nav-latest navbar-left"
-						style="background: #d6800f;">
-						<!--   -->
+						style="background: #d6800f; width:0;">
 					</ul>
 					<ul class="nav navbar-nav navbar-nav-latest navbar-right"
-						style="background: #d6800f;">
+						style="background: #d6800f; width: 25rem;">
 						<li><a href="#" data-toggle="modal" data-target="#sem-login"
 							class="loginbtn ac-login bold" title="Login">LOGIN / REGISTER</a></li>
 					</ul>
@@ -452,20 +451,20 @@ left: 0%;
 				</div>
 			</div>
 			
-			<form id="frm2" class="seminor-login-form" action="dashboard/" method="post" autocomplete="off">
-					{% csrf_token %}
-					<!-- <input type="hidden" name="_csrf" value="8973322f-0bb7-4761-8a55-60f146b49b10" /> -->
-        
-         	<div class="modal-body">
-
-					<div class="form-group m-form__group row has-feedback ">
+			<!-- <input type="hidden" name="_csrf" value="8973322f-0bb7-4761-8a55-60f146b49b10" /> -->
+			
+			<div class="modal-body">
+				
+			<form id="frm2" class="seminor-login-form" action="beneficiary-dashboard/" method="post">
+				{% csrf_token %}
+				<div class="form-group m-form__group row has-feedback ">
 					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-								<label class="col-form-label">USERNAME</label>
-							</div>
-						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input id="username" name="username" onkeypress="checkEnter(this,event)" placeholder="Email Address" class="form-control" required="true" type="text" value="" autocomplete="off"/>
+						<label class="col-form-label">USERNAME</label>
+					</div>
+					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user"></i></span>
+								<input id="username" name="username" onkeypress="checkEnter(this,event)" placeholder="Email Address" class="form-control" required="true" type="text" autocomplete="off"/>
 							</div>
 							</div>
 						
@@ -478,7 +477,7 @@ left: 0%;
 							<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 ">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input id="password" name="password" onkeypress="checkEnter(this,event)" placeholder="Password" class="form-control" required="true" type="text" value="" autocomplete="off"/>
+									<input id="password" name="password" onkeypress="checkEnter(this,event)" placeholder="Password" class="form-control" required="true" type="text" autocomplete="off"/>
 
 								</div>
 							</div>
@@ -505,15 +504,14 @@ left: 0%;
 					<div class="form-group m-form__group row has-feedback">
 
 						<div class="col-md-12 col-lg-12 col-sm-12 btn-check-log">
-							<!-- <button type="submit" value="Submit" onclick=" window.location.href = './dashboard/';"
-								 id="Submit" name="Submit" class="submit_button"> Submit </button> -->
-							<input type="submit" class="btn-check-login bold font_18"
-								onclick=" window.location.href = './dashboard/';" value="Submit">
+							<button type="submit"  id="Submit" name="Submit" class="submit_button"> Submit </button>
+							<!-- <input type="submit" class="btn-check-login bold font_18" value="Submit"> -->
 						</div>
 					</div>
+				</form>
 					
 					
-					</div>
+				</div>
 					
 					<div class="modal-footer ">
 						<div  style="width: 100%;
@@ -549,8 +547,8 @@ left: 0%;
 				</div>
 				
 				<div>
-<input type="hidden" name="_csrf" value="8973322f-0bb7-4761-8a55-60f146b49b10" />
-</div></form>
+<!-- <input type="hidden" name="_csrf" value="8973322f-0bb7-4761-8a55-60f146b49b10" /> -->
+</div>
 
       </div>
     </div>
@@ -1907,7 +1905,7 @@ a:hover>.ico {
 
 		<section id="contactuss">
 			<div class="row footer" >
-				<div style="margin-left:5rem">
+				<div style="margin-left:5rem; width:40rem;">
 					<h1>Smart India Hackathon </h1> <br> 
 				  <h1>Maharaja Agrasen Institute of Technology</h1>
 					</div>

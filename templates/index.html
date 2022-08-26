@@ -431,32 +431,29 @@
 								</div>
 							</div>
 <form>
-	<fieldset style="border:2px solid gray; border-radius: 20px; margin-top:5rem;">
+	<fieldset style="border:2px solid gray; border-radius: 20px; margin-top:5rem; display: block;">
 	<h5 style="margin: 2rem 0 0 2rem; color:darkblue !important"> Beneficiary Details </h5>
 		
-		<table
-      class="GeneratedTable"
-      style="width: 95%; margin: auto; margin-bottom: 2rem;  margin-top:2rem;"
-    >
+		<table class="GeneratedTable"
+      style="width: 95%; margin: auto; margin-bottom: 2rem;  margin-top:2rem;" >
       <thead style="background-color: #539BBD !important;">
         <tr>
-          <th style="width: 1%">S.No.</th>
-          <th style="width: 9%">Beneficiary Name</th>
-          <th style="width: 9%">Father Name</th>
-          <th style="width: 9%">Mother Name</th>
-          <th style="width: 6%">Date Of Birth</th>
-          <th style="width: 4%">Category</th>
-          <th style="width: 20%">Address</th>
-          <th style="width: 7%">Aadhar Card No.</th>
-          <th style="width: 10%">UDID No.</th>
-          <th style="width: 7%">Mobile No.</th>
-          <th style="width: 10%">Disability Type</th>
-          <th style="width: 4%">Disability Percentage</th>
+          <th>Beneficiary Name</th>
+          <th>Father Name</th>
+          <th>Mother Name</th>
+          <th>Date Of Birth</th>
+          <th>Category</th>
+          <th>Address</th>
+          <th>Aadhar Card No.</th>
+          <th>UDID No.</th>
+          <th>Mobile No.</th>
+          <th>Disability Type</th>
+          <th>Disability Percentage</th>
+          <th>Application Status</th>
         </tr>
       </thead>
       <tbody>
         <tr style="background-color: #F2F2F2;">
-          <td><input type="radio" /></td>
 		  {% if context %}
 		  {% for key, value in context.items %}
 		  	<td>{{ value }}</td>

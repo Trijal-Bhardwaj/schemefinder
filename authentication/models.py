@@ -6,6 +6,7 @@ class BeneficiaryDetails(models.Model):
 
     # user = models.ForeignKey('auth.user')
     agency = models.ForeignKey('AgencyDetails', on_delete=models.CASCADE, null=True, blank=True)
+    password = models.CharField(max_length=100, null=True, blank=True)
     udid = models.CharField(max_length=18, null=True, blank=True)
     aadhaar = models.CharField(max_length=12, null=True, blank=True)
     mobile = models.CharField(max_length=15, null=True, blank=True)
@@ -20,6 +21,8 @@ class BeneficiaryDetails(models.Model):
     age = models.PositiveIntegerField(null=True, blank=True)
     category = models.CharField(max_length=100, null=True, blank=True)
     address = models.CharField(max_length=256, null=True, blank=True)
+    district = models.CharField(max_length=128, null=True, blank=True)
+    state = models.CharField(max_length=64, null=True, blank=True)
     pincode = models.CharField(max_length=20, null=True, blank=True)
     occupation = models.CharField(max_length=256, null=True, blank=True)
     income = models.BigIntegerField(null=True, blank=True)
