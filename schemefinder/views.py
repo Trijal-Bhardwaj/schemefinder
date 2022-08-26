@@ -34,64 +34,64 @@ def registration(request):
 
 def index(request):
     if request.method == 'POST':
-        try:
-            context = {}
-            first_name = request.POST['str_fname']
-            middle_name = request.POST['str_mname']
-            last_name = request.POST['str_lname']
-            father_name = request.POST['benef_father_name']
-            mother_name = request.POST['benef_mother_name']
-            salutation = request.POST['salutation']
-            gender = request.POST['num_gender']
-            occupation = request.POST['num_occupation_id']
-            dob = request.POST['dt_dob']
-            dob = datetime.strptime(dob, "%d/%m/%Y")
-            age = datetime.today().year - dob.year
-            category = request.POST['num_category_id']
-            address = request.POST['str_houseNo'] + ', ' + request.POST['str_Street'] + ', ' + request.POST['Str_Area'] + ', ' + request.POST['str_tehsil']
-            district = request.POST['num_district_id']
-            state = request.POST['num_state_id']
-            pin_code = request.POST['num_pincode']
-            assistive_device = request.POST['aid_type']
-            aadhaar = request.POST['benef_adhaar_no']
-            udid = request.POST['str_udid_cardno']
-            mobile = request.POST['str_mobile_no']
-            imparement = request.POST['num_disability_type']
-            imparement_per = request.POST['num_disability_persentage']
-            imparement_certificate = request.FILES['disability_certificate']
-            income_certificate = request.FILES['income_certificate']
-            photo = request.FILES['files']
-            
+        # try:
+        context = {}
+        first_name = request.POST['str_fname']
+        middle_name = request.POST['str_mname']
+        last_name = request.POST['str_lname']
+        father_name = request.POST['benef_father_name']
+        mother_name = request.POST['benef_mother_name']
+        salutation = request.POST['salutation']
+        gender = request.POST['num_gender']
+        occupation = request.POST['num_occupation_id']
+        dob = request.POST['dt_dob']
+        dob = datetime.strptime(dob, "%d/%m/%Y")
+        age = datetime.today().year - dob.year
+        category = request.POST['num_category_id']
+        address = request.POST['str_houseNo'] + ', ' + request.POST['str_Street'] + ', ' + request.POST['Str_Area'] + ', ' + request.POST['str_tehsil']
+        district = request.POST['num_district_id']
+        state = request.POST['num_state_id']
+        pin_code = request.POST['num_pincode']
+        assistive_device = request.POST['aid_type']
+        aadhaar = request.POST['benef_adhaar_no']
+        udid = request.POST['str_udid_cardno']
+        mobile = request.POST['str_mobile_no']
+        imparement = request.POST['num_disability_type']
+        imparement_per = request.POST['num_disability_persentage']
+        imparement_certificate = request.FILES['disability_certificate']
+        income_certificate = request.FILES['income_certificate']
+        photo = request.FILES['files']
+        
 
-            context['name'] = request.POST['str_fname'] + ' ' +  request.POST['str_mname'] + ' ' + request.POST['str_lname']
-            context['father_name'] = request.POST['benef_father_name']
-            context['mother_name'] = request.POST['benef_mother_name']
-            context['dob'] = request.POST['dt_dob']
-            context['category'] = request.POST['num_category_id']
-            context['address'] = request.POST['str_houseNo'] + ', ' + request.POST['str_Street'] + ', ' + request.POST['Str_Area'] + ', ' + request.POST['str_tehsil'] + ', ' + request.POST['num_pincode']
-            context['aadhaar'] = request.POST['benef_adhaar_no']
-            context['udid'] = request.POST['str_udid_cardno']
-            context['mobile'] = request.POST['str_mobile_no']
-            context['impairement'] = request.POST['num_disability_type']
-            context['impairement_per'] = request.POST['num_disability_persentage']
+        context['name'] = request.POST['str_fname'] + ' ' +  request.POST['str_mname'] + ' ' + request.POST['str_lname']
+        context['father_name'] = request.POST['benef_father_name']
+        context['mother_name'] = request.POST['benef_mother_name']
+        context['dob'] = request.POST['dt_dob']
+        context['category'] = request.POST['num_category_id']
+        context['address'] = request.POST['str_houseNo'] + ', ' + request.POST['str_Street'] + ', ' + request.POST['Str_Area'] + ', ' + request.POST['str_tehsil'] + ', ' + request.POST['num_pincode']
+        context['aadhaar'] = request.POST['benef_adhaar_no']
+        context['udid'] = request.POST['str_udid_cardno']
+        context['mobile'] = request.POST['str_mobile_no']
+        context['impairement'] = request.POST['num_disability_type']
+        context['impairement_per'] = request.POST['num_disability_persentage']
 
-            # print (context)
-            beneficiary = BeneficiaryDetails.objects.create(
-                udid=udid, aadhaar=aadhaar, mobile=mobile, first_name=first_name,
-                middle_name=middle_name, last_name=last_name, father_name=father_name, mother_name=mother_name,
-                imparement=imparement, imparement_per=imparement_per, dob=dob,
-                salutation=salutation, gender=gender, age=age, category=category,
-                address=address, pincode=pin_code, occupation=occupation, state=state, district=district,
-                income=0, assistive_device=assistive_device,
-                imparement_certificate=imparement_certificate, 
-                income_certificate=income_certificate, photo=photo
-            )
-            # print("********\n", beneficiary)
-            beneficiary.save()
+        # print (context)
+        beneficiary = BeneficiaryDetails.objects.create(
+            udid=udid, aadhaar=aadhaar, mobile=mobile, first_name=first_name,
+            middle_name=middle_name, last_name=last_name, father_name=father_name, mother_name=mother_name,
+            imparement=imparement, imparement_per=imparement_per, dob=dob,
+            salutation=salutation, gender=gender, age=age, category=category,
+            address=address, pincode=pin_code, occupation=occupation, state=state, district=district,
+            income=0, assistive_device=assistive_device,
+            imparement_certificate=imparement_certificate, 
+            income_certificate=income_certificate, photo=photo
+        )
+        # print("********\n", beneficiary)
+        beneficiary.save()
 
-            return render(request, 'index.html', {'context':context})
-        except:
-            return render(request, 'index.html')
+        return render(request, 'index.html', {'context':context})
+        # except:
+        #     return render(request, 'index.html')
 
     return render(request, 'index.html')
 
